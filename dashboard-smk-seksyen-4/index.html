@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard Operasi | SMK Seksyen 4 Kota Damansara</title>
+<style>
+:root{--navy:#10233f;--blue:#1769aa;--cyan:#20b8d8;--gold:#d9a441;--green:#15936b;--red:#d9534f;--bg:#f3f6fa;--card:#fff;--muted:#6b778c;--line:#e5eaf0}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:linear-gradient(135deg,#eef4fa,#f8fafc);color:var(--navy)}
+.wrap{max-width:1180px;margin:auto;padding:28px}
+.hero{background:linear-gradient(135deg,#10233f 0%,#174e7c 62%,#20a9c5 100%);color:#fff;border-radius:24px;padding:28px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;box-shadow:0 18px 40px #10233f22}
+.brand{display:flex;align-items:center;gap:18px}.logo{width:70px;height:70px;border:2px solid #ffffff77;border-radius:18px;display:grid;place-items:center;font-weight:900;font-size:20px;background:#ffffff14;letter-spacing:-1px}
+.kicker{font-size:12px;letter-spacing:2px;text-transform:uppercase;opacity:.78;font-weight:700}.hero h1{font-size:30px;margin:5px 0}.hero p{margin:0;opacity:.85}.date{text-align:right;font-size:12px;line-height:1.7}.date strong{font-size:16px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:18px 0}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 8px 25px #10233f0a}.label{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.8px}.value{font-size:34px;font-weight:900;margin-top:8px}.sub{font-size:12px;color:var(--muted);margin-top:4px}.accent{height:5px;border-radius:99px;margin-top:15px;background:var(--blue)}
+.main{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.section-title{font-size:17px;font-weight:800;margin:0 0 16px}.progress{height:18px;background:#eaf0f5;border-radius:99px;overflow:hidden}.bar{height:100%;width:97.65%;background:linear-gradient(90deg,var(--green),#43c596);border-radius:99px}.percent{font-size:52px;font-weight:900;line-height:1;margin:8px 0}.flex{display:flex;justify-content:space-between;gap:16px}.mini{background:#f7f9fb;border-radius:14px;padding:15px;flex:1}.mini strong{display:block;font-size:22px;margin-top:5px}.mini.red strong{color:var(--red)}.mini.green strong{color:var(--green)}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:11px 8px;border-bottom:1px solid var(--line);text-align:left}th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.5px}td:last-child,th:last-child{text-align:right}.rank{display:inline-flex;width:28px;height:28px;border-radius:9px;align-items:center;justify-content:center;background:#edf5fb;font-weight:800}.highlight{background:#eef9f5;font-weight:800}.footer{margin-top:18px;text-align:center;color:var(--muted);font-size:11px}.pill{display:inline-block;padding:6px 10px;border-radius:99px;background:#e8f7f1;color:#117c5b;font-weight:800;font-size:11px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.main{grid-template-columns:1fr}.hero{align-items:flex-start}.date{text-align:left}}@media(max-width:520px){.wrap{padding:14px}.grid{grid-template-columns:1fr}.hero{padding:22px;display:block}.date{margin-top:15px}.hero h1{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+ <div class="brand"><div class="logo">S4KD</div><div><div class="kicker">One Page Report • Dashboard Operasi</div><h1>SMK Seksyen 4 Kota Damansara</h1><p>BERILMU BERSUSILA</p></div></div>
+ <div class="date"><strong>Data Terkini</strong><br>5 Oktober 2026<br>Kod Institusi: BEA8655</div>
+</header>
+
+<section class="grid">
+ <div class="card"><div class="label">Layak Tebus</div><div class="value">977</div><div class="sub">Jumlah keseluruhan</div><div class="accent"></div></div>
+ <div class="card"><div class="label">Sudah Tebus</div><div class="value">954</div><div class="sub">97.65% daripada layak</div><div class="accent" style="background:var(--green)"></div></div>
+ <div class="card"><div class="label">Belum Tebus</div><div class="value">23</div><div class="sub">Perlu tindakan susulan</div><div class="accent" style="background:var(--red)"></div></div>
+ <div class="card"><div class="label">Sudah Guna</div><div class="value">945</div><div class="sub">Daripada 954 yang ditebus</div><div class="accent" style="background:var(--gold)"></div></div>
+</section>
+
+<section class="main">
+ <div class="card">
+  <h2 class="section-title">Prestasi Penebusan</h2>
+  <div class="percent">97.65%</div>
+  <div class="progress"><div class="bar"></div></div>
+  <div class="flex" style="margin-top:18px">
+   <div class="mini green"><span>Sudah Tebus</span><strong>954</strong></div>
+   <div class="mini red"><span>Belum Tebus</span><strong>23</strong></div>
+  </div>
+  <div style="margin-top:18px;padding:15px;background:#f7f9fb;border-radius:14px;font-size:13px;line-height:1.6">
+   <b>Status:</b> Hampir mencapai 100%. Fokus tindakan seterusnya ialah melengkapkan baki <b>23</b> penebusan.
+  </div>
+ </div>
+
+ <div class="card">
+  <h2 class="section-title">Penggunaan Selepas Tebus</h2>
+  <div class="flex">
+   <div class="mini green"><span>Sudah Guna</span><strong>945</strong></div>
+   <div class="mini"><span>Belum Guna</span><strong>32</strong></div>
+  </div>
+  <div style="margin-top:18px">
+   <div class="flex"><span class="label">Kadar penggunaan</span><b>99.06%</b></div>
+   <div class="progress" style="margin-top:8px"><div class="bar" style="width:99.06%;background:linear-gradient(90deg,#d9a441,#efc96b)"></div></div>
+  </div>
+  <div style="margin-top:18px"><span class="pill">PERLU PERHATIAN: 32 belum guna</span></div>
+ </div>
+</section>
+
+<section class="card" style="margin-top:18px">
+ <h2 class="section-title">Kedudukan Sekolah Dalam Senarai</h2>
+ <table><thead><tr><th>#</th><th>Sekolah</th><th>Layak</th><th>% Tebus</th></tr></thead>
+ <tbody>
+ <tr><td><span class="rank">14</span></td><td>KOLEJ TINGKATAN ENAM PETALING JAYA</td><td>512</td><td>97.85%</td></tr>
+ <tr class="highlight"><td><span class="rank">15</span></td><td>SMK SEKSYEN 4 KOTA DAMANSARA</td><td>977</td><td>97.65%</td></tr>
+ <tr><td><span class="rank">16</span></td><td>SMK BANDAR SRI DAMANSARA 1</td><td>1,433</td><td>97.14%</td></tr>
+ </tbody></table>
+</section>
+
+<section class="card" style="margin-top:18px">
+ <h2 class="section-title">Tindakan Susulan</h2>
+ <div class="flex">
+  <div class="mini"><span>01</span><strong>23</strong><span>Kenal pasti penerima yang belum tebus</span></div>
+  <div class="mini"><span>02</span><strong>32</strong><span>Semak penerima yang sudah tebus tetapi belum guna</span></div>
+  <div class="mini"><span>03</span><strong>100%</strong><span>Sasaran penutupan tindakan</span></div>
+ </div>
+</section>
+
+<div class="footer">SMK SEKSYEN 4 KOTA DAMANSARA • Dashboard Operasi • Dikemas kini berdasarkan data yang dibekalkan</div>
+</div>
+</body>
+</html>
