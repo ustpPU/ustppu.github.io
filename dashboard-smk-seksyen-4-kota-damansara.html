@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard OPR — SMK Seksyen 4 Kota Damansara</title>
+<style>
+:root{--navy:#10243e;--blue:#1f5f9e;--cyan:#16a6b6;--green:#1f9d72;--gold:#d8a63c;--red:#d9534f;--bg:#f4f7fb;--ink:#182433;--muted:#68778a;--card:#fff;--line:#e4eaf1}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink)}
+.wrap{max-width:1280px;margin:auto;padding:28px}
+header{background:linear-gradient(135deg,#10243e,#1f5f9e);color:white;border-radius:24px;padding:28px 32px;box-shadow:0 16px 40px #10243e20}
+.brand{display:flex;gap:18px;align-items:center}.logo{width:62px;height:62px;border:2px solid #fff8;border-radius:16px;display:grid;place-items:center;font-weight:800;font-size:20px;background:#ffffff14}
+h1{font-size:30px;margin:0 0 5px;letter-spacing:-.5px}.sub{opacity:.82;font-size:14px}.pill{margin-left:auto;background:#ffffff18;border:1px solid #ffffff30;padding:9px 14px;border-radius:999px;font-size:12px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}.toolbar input,.toolbar select,.toolbar button{border:1px solid var(--line);background:white;border-radius:12px;padding:11px 14px;font:inherit}.toolbar input{min-width:260px}.toolbar button{cursor:pointer;font-weight:700}.toolbar button.primary{background:var(--blue);color:white;border-color:var(--blue)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 7px 22px #19324b0d}.label{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.7px}.value{font-size:32px;font-weight:800;margin:7px 0}.hint{font-size:12px;color:var(--muted)}.good{color:var(--green)}.warn{color:var(--gold)}.bad{color:var(--red)}
+.section{margin-top:18px}.section h2{font-size:17px;margin:0 0 12px}.twocol{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.progress{height:14px;background:#edf1f5;border-radius:99px;overflow:hidden}.bar{height:100%;background:linear-gradient(90deg,var(--green),var(--cyan));border-radius:99px}.donut{width:170px;height:170px;border-radius:50%;margin:auto;background:conic-gradient(var(--green) 0 97.65%,#e7edf2 97.65%);display:grid;place-items:center}.donut:after{content:"97.65%";width:118px;height:118px;border-radius:50%;background:white;display:grid;place-items:center;font-size:25px;font-weight:800}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.mini{padding:14px;background:#f8fafc;border-radius:14px}.mini b{display:block;font-size:21px;margin-top:3px}
+.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:16px}.tablewrap table{width:100%;border-collapse:collapse;background:white;font-size:13px}.tablewrap th{background:#eef4f9;text-align:left;padding:12px;white-space:nowrap}.tablewrap td{padding:12px;border-top:1px solid var(--line)}.school{font-weight:700}.tag{padding:5px 9px;border-radius:999px;font-weight:700;font-size:11px}.tag.green{background:#e8f7f1;color:#167453}.tag.yellow{background:#fff5dc;color:#956d13}.tag.red{background:#fdeceb;color:#a63a36}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:24px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.twocol{grid-template-columns:1fr}}@media(max-width:560px){.wrap{padding:14px}header{padding:20px}.grid{grid-template-columns:1fr 1fr}.value{font-size:25px}h1{font-size:22px}.pill{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div class="brand"><div class="logo">S4KD</div><div><h1>SMK SEKSYEN 4 KOTA DAMANSARA</h1><div class="sub">ONE PAGE REPORT • DASHBOARD OPERASI</div></div><div class="pill">DATA TERKINI • 5 OKTOBER 2026</div></div></header>
+
+<div class="toolbar">
+<input id="search" placeholder="Cari sekolah / kod institusi..." oninput="render()">
+<select id="status" onchange="render()"><option value="">Semua status</option><option value="100">100%</option><option value="90">90–99.99%</option><option value="80">80–89.99%</option><option value="low">Bawah 80%</option></select>
+<button class="primary" onclick="window.print()">Cetak / PDF</button>
+</div>
+
+<div class="grid">
+<div class="card"><div class="label">Layak Tebus</div><div class="value">977</div><div class="hint">Jumlah keseluruhan murid / kelayakan</div></div>
+<div class="card"><div class="label">Sudah Tebus</div><div class="value good">954</div><div class="hint">97.65% daripada yang layak</div></div>
+<div class="card"><div class="label">Belum Tebus</div><div class="value bad">23</div><div class="hint">Perlu tindakan susulan</div></div>
+<div class="card"><div class="label">Sudah Guna</div><div class="value">945</div><div class="hint">96.72% daripada layak</div></div>
+</div>
+
+<div class="twocol section">
+<div class="card"><h2>Prestasi Tebusan</h2><div style="display:flex;justify-content:space-between;margin:16px 0 8px"><b>954 / 977</b><b class="good">97.65%</b></div><div class="progress"><div class="bar" style="width:97.65%"></div></div>
+<div class="stats" style="margin-top:18px"><div class="mini">Belum Tebus<b class="bad">23</b></div><div class="mini">Sudah Guna<b class="good">945</b></div></div></div>
+<div class="card"><h2>Ringkasan Status</h2><div class="donut"></div><div style="text-align:center;margin-top:12px;color:var(--muted);font-size:12px">Kadar sudah tebus</div></div>
+</div>
+
+<div class="section card"><h2>Perbandingan Sekolah — Data Operasi</h2><div class="tablewrap"><table><thead><tr><th>Kod</th><th>Sekolah</th><th>Layak</th><th>Sudah Tebus</th><th>Belum Tebus</th><th>% Tebus</th><th>Sudah Guna</th><th>Belum Guna</th><th>Status</th></tr></thead><tbody id="rows"></tbody></table></div></div>
+<footer>SMK SEKSYEN 4 KOTA DAMANSARA • BERILMU BERSUSILA</footer>
+</div>
+<script>
+const data=[
+["BEA8666","SEKOLAH MENENGAH KEBANGSAAN SEKSYEN 8 KOTA DAMANSARA",796,796,0,100,795,1],
+["BEA8624","SEKOLAH MENENGAH KEBANGSAAN SRI UTAMA",425,425,0,100,424,1],
+["BEB8652","SEKOLAH MENENGAH KEBANGSAAN (L) BUKIT BINTANG",377,377,0,100,377,0],
+["BEA8631","KOLEJ TINGKATAN ENAM BANDAR UTAMA",510,510,0,100,469,41],
+["BEA8644","SEKOLAH MENENGAH KEBANGSAAN BANDAR UTAMA DAMANSARA (4)",1159,1157,2,99.83,1037,122],
+["BEB8655","SEKOLAH MENENGAH KEBANGSAAN (P) SRI AMAN",824,822,2,99.76,709,115],
+["BEA8661","SEKOLAH MENENGAH KEBANGSAAN LEMBAH SUBANG",758,756,2,99.74,756,2],
+["BEB8658","SEKOLAH MENENGAH KEBANGSAAN (P) TAMAN PETALING",364,363,1,99.73,324,40],
+["BEA8652","SEKOLAH MENENGAH KEBANGSAAN DAMANSARA DAMAI 1",1951,1939,12,99.38,1869,82],
+["BEB8653","SEKOLAH MENENGAH KEBANGSAAN KATHOLIK",2802,2778,24,99.14,2729,73],
+["BEA8613","SEKOLAH MENENGAH KEBANGSAAN TAMAN MEDAN",1398,1383,15,98.93,1334,64],
+["BEA8643","SEKOLAH MENENGAH KEBANGSAAN BANDAR UTAMA DAMANSARA 3",1100,1087,13,98.82,1074,26],
+["BEB8651","SEKOLAH MENENGAH KEBANGSAAN ASSUNTA",1217,1196,21,98.27,1170,47],
+["BEA8669","KOLEJ TINGKATAN ENAM PETALING JAYA",512,501,11,97.85,496,16],
+["BEA8655","SEKOLAH MENENGAH KEBANGSAAN SEKSYEN 4 KOTA DAMANSARA",977,954,23,97.65,945,32],
+["BEA8659","SEKOLAH MENENGAH KEBANGSAAN BANDAR SRI DAMANSARA 1",1433,1392,41,97.14,1339,94],
+["BEA8608","SEKOLAH MENENGAH KEBANGSAAN DAMANSARA JAYA",1301,1256,45,96.54,555,746],
+["BEA8640","SEKOLAH MENENGAH KEBANGSAAN TROPICANA",966,918,48,95.03,905,61],
+["BEA8641","SEKOLAH MENENGAH KEBANGSAAN BANDAR SRI DAMANSARA 2",1169,1088,81,93.07,1084,85],
+["BEA8615","SEKOLAH MENENGAH KEBANGSAAN KELANA JAYA",703,643,60,91.47,623,80],
+["BEA8602","SEKOLAH MENENGAH KEBANGSAAN SRI PERMATA",846,771,75,91.13,691,155],
+["BEA8611","SEKOLAH MENENGAH KEBANGSAAN DAMANSARA UTAMA",985,887,98,90.05,801,184],
+["BEB8657","SEKOLAH MENENGAH KEBANGSAAN SULTAN ABDUL SAMAD",1347,1176,171,87.31,1108,239],
+["BEA8607","SEKOLAH MENENGAH KEBANGSAAN TAMAN DATO' HARUN",1500,1273,227,84.87,1230,270],
+["BEA8638","SEKOLAH MENENGAH KEBANGSAAN SEKSYEN 10 KOTA DAMANSARA",1556,1320,236,84.83,1268,288],
+["BEB8656","SEKOLAH MENENGAH KEBANGSAAN TAMAN SEA",1302,1084,218,83.26,953,349],
+["BEA8658","SEKOLAH MENENGAH KEBANGSAAN BANDAR UTAMA DAMANSARA (2)",652,542,110,83.13,502,150],
+["BEB8654","SEKOLAH MENENGAH KEBANGSAAN LA SALLE PJ",900,747,153,83.00,729,171]
+];
+function render(){const q=document.getElementById('search').value.toLowerCase(), f=document.getElementById('status').value;
+const out=data.filter(r=>{let s=(r[0]+" "+r[1]).toLowerCase();let ok=!q||s.includes(q);let st=!f||(f==="100"&&r[5]===100)||(f==="90"&&r[5]>=90&&r[5]<100)||(f==="80"&&r[5]>=80&&r[5]<90)||(f==="low"&&r[5]<80);return ok&&st}).map(r=>{let c=r[5]>=97?"green":r[5]>=90?"yellow":"red";return '<tr><td>'+r[0]+'</td><td class="school">'+r[1]+'</td><td>'+r[2].toLocaleString()+'</td><td>'+r[3].toLocaleString()+'</td><td>'+r[4].toLocaleString()+'</td><td><b>'+r[5].toFixed(2)+'%</b></td><td>'+r[6].toLocaleString()+'</td><td>'+r[7].toLocaleString()+'</td><td><span class="tag '+c+'">'+(r[5]>=97?"SANGAT BAIK":r[5]>=90?"BAIK":"PERLU TINDAKAN")+'</span></td></tr>'}).join('');
+document.getElementById('rows').innerHTML=out||'<tr><td colspan="9">Tiada rekod ditemui.</td></tr>'} render();
+</script>
+</body></html>
