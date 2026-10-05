@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard OPR — SMK Seksyen 4 Kota Damansara</title>
+<style>
+:root{--navy:#12324a;--blue:#1f6f8b;--gold:#c99b3b;--bg:#f4f7f9;--line:#d8e0e6;--text:#24323d;--muted:#6b7780}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--text)}
+.wrap{max-width:1100px;margin:auto;padding:24px}.toolbar{display:flex;gap:10px;justify-content:flex-end;margin-bottom:14px}.toolbar button{border:0;border-radius:8px;padding:10px 14px;background:var(--navy);color:white;font-weight:700;cursor:pointer}.toolbar button.secondary{background:white;color:var(--navy);border:1px solid var(--line)}
+.report{background:white;border:1px solid var(--line);box-shadow:0 10px 30px #19324a18;padding:28px;min-height:1400px}
+.header{display:grid;grid-template-columns:92px 1fr auto;gap:18px;align-items:center;border-bottom:4px solid var(--gold);padding-bottom:18px}.logo{height:78px;width:78px;border:2px dashed #aab7c0;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--muted);text-align:center}.school{font-size:27px;font-weight:900;color:var(--navy);letter-spacing:.3px}.sub{font-size:12px;color:var(--muted);margin-top:5px}.badge{background:#eef5f7;color:var(--blue);padding:9px 12px;border-radius:20px;font-weight:800;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}.field{border:1px solid var(--line);border-radius:10px;padding:12px;background:#fbfcfd}.label{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--blue);font-weight:900;margin-bottom:6px}.input{min-height:25px;outline:none;font-size:14px}.input:empty:before{content:attr(data-placeholder);color:#a5afb6}
+.section{margin-top:18px}.section h2{font-size:13px;margin:0 0 8px;color:white;background:var(--navy);padding:9px 12px;border-radius:7px}.box{border:1px solid var(--line);border-radius:9px;padding:12px;min-height:78px;outline:none}.box:empty:before{content:attr(data-placeholder);color:#a5afb6;white-space:pre-line}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.photos{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.photo{height:115px;border:2px dashed #c6d0d7;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9aa6ae;font-size:11px;text-align:center;background:#fafcfd}.footer{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:14px}.small{min-height:65px}.note{font-size:10px;color:var(--muted);margin-top:14px;text-align:center}
+@media(max-width:700px){.wrap{padding:10px}.report{padding:16px}.header{grid-template-columns:65px 1fr}.badge{grid-column:2}.school{font-size:20px}.grid,.two{grid-template-columns:1fr}.photos{grid-template-columns:1fr 1fr}.toolbar{justify-content:stretch}.toolbar button{flex:1}}
+@media print{body{background:white}.wrap{padding:0}.toolbar{display:none}.report{box-shadow:none;border:0;padding:18mm;min-height:auto}.field,.box{break-inside:avoid}.section{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="toolbar"><button class="secondary" id="clear">Kosongkan</button><button id="print">Cetak / Simpan PDF</button></div>
+<main class="report" id="report">
+<header class="header">
+<div class="logo">LOGO<br>SEKOLAH</div>
+<div><div class="school">SMK SEKSYEN 4 KOTA DAMANSARA</div><div class="sub">ONE PAGE REPORT • DASHBOARD</div></div>
+<div class="badge">OPR</div>
+</header>
+<div class="grid">
+<div class="field"><div class="label">Program / Aktiviti</div><div class="input" contenteditable="true" data-placeholder="Klik dan taip nama program"></div></div>
+<div class="field"><div class="label">Anjuran</div><div class="input" contenteditable="true" data-placeholder="Klik dan taip"></div></div>
+<div class="field"><div class="label">Tarikh • Masa</div><div class="input" contenteditable="true" data-placeholder="Klik dan taip"></div></div>
+<div class="field"><div class="label">Tempat</div><div class="input" contenteditable="true" data-placeholder="Klik dan taip"></div></div>
+<div class="field" style="grid-column:1/-1"><div class="label">Kumpulan Sasaran / Peserta</div><div class="input" contenteditable="true" data-placeholder="Nyatakan kumpulan sasaran dan bilangan peserta"></div></div>
+</div>
+<section class="section"><h2>01 • OBJEKTIF</h2><div class="box" contenteditable="true" data-placeholder="1. Objektif pertama&#10;2. Objektif kedua&#10;3. Objektif ketiga"></div></section>
+<section class="section"><h2>02 • RUMUSAN PROGRAM</h2><div class="box" contenteditable="true" data-placeholder="Tulis ringkasan pelaksanaan program, pencapaian dan impak utama."></div></section>
+<section class="section"><h2>03 • AKTIVITI UTAMA</h2><div class="box" contenteditable="true" data-placeholder="• Aktiviti 1&#10;• Aktiviti 2&#10;• Aktiviti 3&#10;• Aktiviti 4"></div></section>
+<div class="two">
+<section class="section"><h2>04 • PENCAPAIAN / IMPAK</h2><div class="box" contenteditable="true" data-placeholder="Nyatakan hasil dan impak."></div></section>
+<section class="section"><h2>05 • KEKUATAN</h2><div class="box" contenteditable="true" data-placeholder="Nyatakan kekuatan program."></div></section>
+<section class="section"><h2>06 • KELEMAHAN / ISU</h2><div class="box" contenteditable="true" data-placeholder="Nyatakan isu / kekangan."></div></section>
+<section class="section"><h2>07 • PENAMBAHBAIKAN</h2><div class="box" contenteditable="true" data-placeholder="Nyatakan tindakan susulan / cadangan."></div></section>
+</div>
+<section class="section"><h2>08 • LAMPIRAN GAMBAR</h2><div class="photos"><div class="photo">FOTO 1</div><div class="photo">FOTO 2</div><div class="photo">FOTO 3</div><div class="photo">FOTO 4</div></div></section>
+<div class="footer"><div class="field small"><div class="label">Disediakan oleh</div><div class="input" contenteditable="true" data-placeholder="Nama / Jawatan"></div></div><div class="field small"><div class="label">Unit / Kelab / Persatuan / Lain-lain</div><div class="input" contenteditable="true" data-placeholder="Klik dan taip"></div></div></div>
+<div class="note">SMK SEKSYEN 4 KOTA DAMANSARA • Dashboard One Page Report</div>
+</main></div>
+<script>
+document.getElementById('print').addEventListener('click',()=>window.print());
+document.getElementById('clear').addEventListener('click',()=>{if(confirm('Kosongkan semua ruangan yang telah diisi?'))document.querySelectorAll('[contenteditable=true]').forEach(x=>x.innerText='')});
+</script>
+</body></html>
