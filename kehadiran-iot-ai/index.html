@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07152f">
+  <title>Borang Kehadiran | Program IoT &amp; AI</title>
+  <style>
+    :root{--navy:#07152f;--blue:#123c70;--cyan:#67e8f9;--ink:#15233c;--muted:#64748b;--line:#dbe4f0;--paper:#f3f7fc}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top right,#dbeafe,transparent 36%),var(--paper);color:var(--ink)}
+    .wrap{max-width:780px;margin:0 auto;padding:24px 16px 44px}.hero{position:relative;overflow:hidden;border-radius:24px;background:linear-gradient(125deg,#07152f,#123c70 62%,#075985);color:#fff;padding:30px 26px;box-shadow:0 18px 50px #0f2b4a20}
+    .hero:after{content:"";position:absolute;width:240px;height:240px;border:1px solid #67e8f933;border-radius:50%;right:-75px;top:-85px;box-shadow:0 0 0 24px #67e8f911,0 0 0 50px #67e8f908}
+    .eyebrow{font-size:.76rem;letter-spacing:.15em;color:var(--cyan);font-weight:800;text-transform:uppercase}.hero h1{font-size:clamp(1.5rem,4vw,2.25rem);line-height:1.13;margin:12px 0}.hero p{line-height:1.55;color:#dbeafe;margin:0;max-width:620px}.chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}.chip{border:1px solid #ffffff35;background:#ffffff0e;border-radius:999px;padding:9px 12px;font-size:.88rem}
+    .card{background:#fff;border:1px solid #e2e8f0;border-radius:22px;padding:24px;margin-top:18px;box-shadow:0 8px 28px #0f2b4a0a}.notice{font-size:.9rem;line-height:1.5;background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:12px 14px;color:#1e40af;margin-bottom:20px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}label{font-size:.93rem;font-weight:700}label .req{color:#dc2626}input,select{width:100%;border:1px solid #cbd5e1;border-radius:11px;background:#fff;padding:13px 14px;font:inherit;color:var(--ink);outline:none}input:focus,select:focus{border-color:#0284c7;box-shadow:0 0 0 3px #0284c722}.help{font-size:.79rem;color:var(--muted);line-height:1.4}.consent{display:flex;align-items:flex-start;gap:10px;font-size:.86rem;line-height:1.45;color:#475569;margin:20px 0}.consent input{width:17px;height:17px;margin-top:2px;flex-shrink:0}.btn{width:100%;border:0;border-radius:12px;padding:14px 18px;font-size:1rem;font-weight:800;color:#06152f;background:linear-gradient(90deg,#67e8f9,#38bdf8);cursor:pointer}.btn:disabled{opacity:.65;cursor:wait}.status{display:none;margin-top:16px;padding:13px 14px;border-radius:12px;line-height:1.45;font-size:.92rem}.status.ok{display:block;background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46}.status.err{display:block;background:#fef2f2;border:1px solid #fecaca;color:#991b1b}.footer{text-align:center;color:#64748b;font-size:.8rem;padding:18px 8px}.hp{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+    @media(max-width:600px){.wrap{padding:14px 11px 30px}.hero{padding:24px 20px;border-radius:19px}.card{padding:19px;border-radius:18px}.grid{grid-template-columns:1fr;gap:15px}.field.full{grid-column:auto}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <div class="eyebrow">Borang Kehadiran Peserta</div>
+      <h1>Program Pembangunan Profesional Guru dalam IoT dan Automasi Pintar Berteraskan Teknologi AI</h1>
+      <p>Lengkapkan maklumat di bawah untuk rekod kehadiran program.</p>
+      <div class="chips">
+        <span class="chip">📅 14 Oktober 2026 (Rabu)</span><span class="chip">🕘 9.00 pagi</span><span class="chip">📍 Digital Maker Hub</span>
+      </div>
+    </header>
+    <section class="card">
+      <div class="notice"><strong>Makluman privasi:</strong> Maklumat digunakan untuk rekod program. Akses kepada helaian respons hendaklah dihadkan kepada pegawai yang dibenarkan.</div>
+      <form id="attendanceForm">
+        <div class="grid">
+          <div class="field full"><label for="nama">1. Nama penuh <span class="req">*</span></label><input id="nama" name="nama" autocomplete="name" maxlength="150" required></div>
+          <div class="field"><label for="ic">2. No. Kad Pengenalan <span class="req">*</span></label><input id="ic" name="ic" inputmode="numeric" autocomplete="off" pattern="[0-9]{12}" maxlength="12" minlength="12" placeholder="12 digit tanpa sengkang" required><div class="help">Masukkan 12 digit tanpa tanda sengkang.</div></div>
+          <div class="field"><label for="telefon">3. No. telefon <span class="req">*</span></label><input id="telefon" name="telefon" inputmode="tel" autocomplete="tel" pattern="01[0-9]{8,9}" maxlength="11" placeholder="Contoh: 0123456789" required></div>
+          <div class="field full"><label for="organisasi">4. Organisasi / nama sekolah <span class="req">*</span></label><input id="organisasi" name="organisasi" maxlength="200" required></div>
+          <div class="field full"><label for="subjek">5. Mata pelajaran yang diajar <span class="req">*</span></label><input id="subjek" name="subjek" maxlength="200" placeholder="Senaraikan jika lebih daripada satu" required></div>
+          <div class="field full"><label for="tahun">6. Tahun / Tingkatan yang diajar <span class="req">*</span></label><input id="tahun" name="tahun" maxlength="150" placeholder="Contoh: Tahun 5, Tingkatan 2 atau pelbagai" required></div>
+          <div class="field full"><label for="pengalaman">7. Pengalaman mengajar <span class="req">*</span></label><select id="pengalaman" name="pengalaman" required><option value="">Pilih pengalaman mengajar</option><option>Kurang daripada 1 tahun</option><option>1–5 tahun</option><option>6–10 tahun</option><option>11–15 tahun</option><option>16–20 tahun</option><option>Lebih daripada 20 tahun</option></select></div>
+        </div>
+        <div class="hp" aria-hidden="true"><label for="website">Biarkan kosong</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+        <label class="consent"><input type="checkbox" id="consent" required><span>Saya mengesahkan maklumat yang diberikan adalah benar dan bersetuju maklumat ini digunakan untuk pengurusan kehadiran program.</span></label>
+        <button class="btn" id="submitBtn" type="submit">Hantar Kehadiran</button><div id="status" class="status" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+    <div class="footer">Program Pembangunan Profesional Guru · IoT, Automasi Pintar &amp; AI</div>
+  </main>
+  <script>
+    // Selepas backend Google Apps Script dipasang, letakkan URL Web App /exec di sini.
+    const SCRIPT_URL = "URL_DI_SINI";
+    const form=document.getElementById("attendanceForm"),button=document.getElementById("submitBtn"),statusBox=document.getElementById("status");
+    form.addEventListener("submit",async event=>{
+      event.preventDefault();statusBox.className="status";statusBox.textContent="";
+      if(!form.reportValidity())return;
+      if(SCRIPT_URL==="URL_DI_SINI"){statusBox.className="status err";statusBox.textContent="Borang belum disambungkan kepada Google Sheets. Urus setia perlu menetapkan URL Web App terlebih dahulu.";return;}
+      button.disabled=true;button.textContent="Sedang menghantar...";
+      const data=new URLSearchParams();
+      for(const key of ["nama","ic","telefon","organisasi","subjek","tahun","pengalaman","website"])data.append(key,form.elements[key].value.trim());
+      try{
+        await fetch(SCRIPT_URL,{method:"POST",mode:"no-cors",body:data});
+        statusBox.className="status ok";statusBox.textContent="Permintaan penghantaran telah dihantar. Sila cuba semula atau hubungi urus setia jika rekod tidak muncul dalam Google Sheets.";form.reset();
+      }catch(error){statusBox.className="status err";statusBox.textContent="Penghantaran gagal. Semak sambungan internet dan cuba lagi.";}
+      finally{button.disabled=false;button.textContent="Hantar Kehadiran";}
+    });
+  </script>
+</body>
+</html>
